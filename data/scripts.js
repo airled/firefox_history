@@ -5,6 +5,7 @@ self.port.on('history', function(array_of_objects) {
     var newdiv = document.createElement('div');
     newdiv.setAttribute('class', 'historyElement');
     newdiv.setAttribute('url', object.url);
+    // newdiv.setAttribute('onmouseover', );
     newdiv.innerHTML = object.title;
     divhistory.appendChild(newdiv);
   });
