@@ -43,4 +43,5 @@ panel.port.on('tabUrl', function(url) {
   tabs.open({
     url: url
   });
+  panel.hide();
 });
