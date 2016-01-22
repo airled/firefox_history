@@ -9,7 +9,7 @@ self.port.on('history', function(array_of_objects) {
       newdiv.setAttribute('class', 'historyElement');
       newdiv.setAttribute('title', object.url);
         if (title.length > 50) {
-          newdiv.innerHTML = title.substr(0, 48) + '...';
+          newdiv.innerHTML = title.substr(0, 47) + '...';
         }
         else{
           newdiv.innerHTML = title;

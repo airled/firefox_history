@@ -2,10 +2,12 @@
 	overflow: hidden;
 }
 .historyElement{
+	padding: 0px 5px 0px 5px;
 	white-space: nowrap;
 	overflow: hidden;
 	cursor: default;
 }
 .historyElement:hover{
 	background-color: white;
+	border-radius: 20px;
 }

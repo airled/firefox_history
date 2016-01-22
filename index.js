@@ -1,6 +1,8 @@
-var tabs = require("sdk/tabs");
-var { ToggleButton } = require('sdk/ui/button/toggle');
-var button = ToggleButton({
+let tabs = require("sdk/tabs");
+let { search } = require("sdk/places/history");
+let { ToggleButton } = require('sdk/ui/button/toggle');
+
+let button = ToggleButton({
   id: "History",
   label: "History",
   icon: {
@@ -11,7 +13,7 @@ var button = ToggleButton({
   onChange: handleChange
 });
 
-var panel = require("sdk/panel").Panel({
+let panel = require("sdk/panel").Panel({
   contentURL: "./panel.html",
   contentScriptFile: "./scripts.js",
   width: 400,
@@ -33,9 +35,11 @@ function handleHide() {
 }
 
 function getHistory() {
-  var { search } = require("sdk/places/history");
-  search({ sort: "date" }).on("end", function (results) {
-    panel.port.emit('history', results.reverse().slice(0,38));
+  search(
+    { url: "" },
+    { sort: "date", descending: true, count: 38 })
+  .on("end", function (results) {
+    panel.port.emit('history', results);
   });
 }
 
