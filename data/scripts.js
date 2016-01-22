@@ -1,5 +1,6 @@
+var divhistory = document.getElementById('history');
+
 self.port.on('history', function(array_of_objects) {
-  var divhistory = document.getElementById('history');
   divhistory.innerHTML = '';
   array_of_objects.map(function(object) {
     title = String(object.title);
